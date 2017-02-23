@@ -49,14 +49,10 @@ class Staff::ProgramSessionDecorator < ApplicationDecorator
   end
 
   def scheduled_for
-    parts = []
     if object.time_slot
       ts = object.time_slot
-      parts << ts.conference_day if ts.conference_day.present?
-      parts << ts.start_time.to_s(:time) if ts.start_time.present?
-      parts << ts.room.name if ts.room.present?
+      "Day #{ts.conference_day}" if ts.conference_day.present?
     end
-    parts.join(', ')
   end
 
   def complete_video_url
