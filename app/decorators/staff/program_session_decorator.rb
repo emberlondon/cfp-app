@@ -56,7 +56,7 @@ class Staff::ProgramSessionDecorator < ApplicationDecorator
   end
 
   def complete_video_url
-    if object.video_url.include?("://")
+    if object.video_url[/^https?:\/\//]
       object.video_url
     else
       "http://#{object.video_url}"
@@ -64,7 +64,7 @@ class Staff::ProgramSessionDecorator < ApplicationDecorator
   end
 
   def complete_slides_url
-    if object.slides_url.include?("://")
+    if object.slides_url[/^https?:\/\//]
       object.slides_url
     else
       "http://#{object.slides_url}"
