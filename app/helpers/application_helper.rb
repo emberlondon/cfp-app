@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def title
     if @title.blank?
-      "CFPApp"
+      "EmberCamp London 2017 CFP"
     else
       @title
     end
